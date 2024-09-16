@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import UserProfile from './components/UserProfile';
 import UserActivities from './components/UserActivity';
-import './index.css'
+import './index.css';
 
 function App() {
-  const { userId } = useParams(1);
+  const { userId } = useParams();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [activities, setActivities] = useState([]);
@@ -43,17 +43,19 @@ function App() {
   return (
     <div className="container mx-auto p-6 bg-gray-100 min-h-screen">
       <header className="bg-green-600 text-white p-4 mb-6 rounded-t-lg shadow-lg">
-        <h1 className="text-3xl font-bold">Here are the user’s data</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-center">Here are the user’s data</h1>
       </header>
-      <div className="mb-6 flex justify-center space-x-4">
+      <div className="mb-6 flex flex-wrap justify-center space-x-4">
         <button
           onClick={() => navigate('/users/1')}
-          className={`px-6 py-3 font-semibold rounded-lg shadow-md transition duration-300 ${userId === '1' ? 'bg-green-600 text-white' : 'bg-orange-500 text-white hover:bg-orange-600'}`}        >
+          className={`px-4 py-2 sm:px-6 sm:py-3 font-semibold rounded-lg shadow-md transition duration-300 ${userId === '1' ? 'bg-green-600 text-white' : 'bg-orange-500 text-white hover:bg-orange-600'}`}
+        >
           User 1
         </button>
         <button
           onClick={() => navigate('/users/2')}
-          className={`px-6 py-3 font-semibold rounded-lg shadow-md transition duration-300 ${userId === '2' ? 'bg-green-600 text-white' : 'bg-orange-500 text-white hover:bg-orange-600'}`}        >
+          className={`px-4 py-2 sm:px-6 sm:py-3 font-semibold rounded-lg shadow-md transition duration-300 ${userId === '2' ? 'bg-green-600 text-white' : 'bg-orange-500 text-white hover:bg-orange-600'}`}
+        >
           User 2
         </button>
       </div>
